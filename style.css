@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+}
+body{
+    background: url("./background.png");
+    background-repeat: no-repeat;
+    background-size: 160rem 61rem;
+}
+.container{
+    width: 500px;
+    padding: 20px;
+    margin: 100px auto 0;
+}
+.Input-Add-Task{
+    border: none;
+    border-radius: 5px;
+    width: 300px;
+    height: 40px;
+    font-size: 20px;
+    padding-left: 10;
+    background-color: #433d3d;
+    color: #9c9994;
+}
+.Button-Add-Task{
+    border: none;
+    border-radius: 5px;
+    height: 40px;
+    background-color: #433d3d;
+    color: #9c9994;
+    font-size: 20px;
+    padding: 0 15px;
+    float: right;
+    cursor: pointer;
+    font-weight: 700;
+}
+.Button-Add-Task:hover{background-color: #29251c;}
+i{
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+.task {
+    margin-top: 5px;
+    color: #9c9994;
+    background-color: #433d3d;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 20px;
+    padding: 0 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.task:hover i{
+    opacity: 1;
+}
