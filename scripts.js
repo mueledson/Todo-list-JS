@@ -5,7 +5,10 @@ const listaCompleta = document.querySelector('.list-tasks')
 let minhaListadeItens = [];
 
 function adicionarNovaTarefa() {
-    minhaListadeItens.push(input.value)
+    minhaListadeItens.push({
+        tarefa: input.value,
+        concluida: false
+    })
 
     input.value = ''
     
@@ -18,20 +21,19 @@ function mostrarTarefas() {
 
     //
 
-    minhaListadeItens.forEach((tarefa) =>{
+    minhaListadeItens.forEach((item, index) =>{
         novaLi = novaLi + `
 
-        <li class="task">
+        <li class="task ${item.concluida && "done"}">
             <i 
-                class="fa-regular
-                fa-circle-check" 
-                onClick="teste()"
+                class="fa-regular fa-circle-check" 
+                onClick="concluirTarefa(${index})"
             >
             </i>
-            <p>${tarefa}</p>
+            <p>${item.tarefa}</p>
             <i
             class="fa-solid fa-trash"
-            onClick="deletarItem()"
+            onClick="deletarItem(${index})"
             >
             </i>
         </li>
@@ -46,8 +48,16 @@ function teste(){
     console.log('oi estou testando...')
 }
 
-function deletarItem() {
-    console.log("Bannido")
+function concluirTarefa(index) {
+    minhaListadeItens[index].concluida = !minhaListadeItens[index].concluida
+
+    mostrarTarefas()
+}
+
+function deletarItem(index) {
+    minhaListadeItens.splice(index, 1)
+
+    mostrarTarefas()
 }
 
 button.addEventListener('click', adicionarNovaTarefa);
